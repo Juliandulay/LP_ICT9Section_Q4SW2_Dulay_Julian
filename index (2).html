@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <h1 class="text-primary">Calculator</h1>
+
+
+    
+    <form id="calcForm">
+        <div class="form-group">
+            <label for="num1">Number 1:</label>
+            <input type="number" class="form-control" id="num1">
+        </div>
+        <div class="form-group">
+            <label for="num2">Number 2:</label>
+            <input type="number" class="form-control" id="num2">
+        </div>
+        <button type="button" class="btn btn-primary" onclick="performCalculations()">Calculate</button>
+    </form>
+
+    
+    <div id="results" class="result"></div>
+
+    
+    <footer>
+        <p>Learn more about JavaScript calculations <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators" target="_blank">here</a>.</p>
+    </footer>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    
+    <script>
+        
+        function performCalculations() {
+            
+            var num1 = parseFloat(document.getElementById('num1').value);
+            var num2 = parseFloat(document.getElementById('num2').value);
+
+            
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers.");
+                return;
+            }
+
+            
+            var addition = num1 + num2;
+            var subtraction = num1 - num2;
+            var multiplication = num1 * num2;
+            var division = num1 / num2;
+
+            
+            var results = `
+                <h3>Results:</h3>
+                <p>Addition: ${addition}</p>
+                <p>Subtraction: ${subtraction}</p>
+                <p>Multiplication: ${multiplication}</p>
+                <p>Division: ${division}</p>
+            `;
+            document.getElementById('results').innerHTML = results;
+        }
+    </script>
+
+</body>
+</html>
